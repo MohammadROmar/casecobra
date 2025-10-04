@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 import Header from '@/components/header';
+import Footer from '@/components/footer';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -16,9 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="overflow-x-hidden bg-slate-50 antialiased">
+      <body className="selection:text-primary-foreground selection:bg-primary overflow-x-hidden bg-slate-50 antialiased">
         <Header />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

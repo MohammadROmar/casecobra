@@ -23,6 +23,7 @@ export default function ValueProposition() {
             <Image
               src={snakeImg}
               alt="Cartoon cobra with a smiling face, big eyes, and a protruding red tongue, outlined in black. The snake is a vibrant green."
+              className="select-none"
             />
           </div>
         </div>
@@ -51,7 +52,7 @@ export default function ValueProposition() {
                   <Image
                     src={review.image}
                     alt="User image"
-                    className="object-cover"
+                    className="object-cover select-none"
                   />
                 </div>
                 <div className="flex flex-col">

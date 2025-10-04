@@ -21,7 +21,7 @@ export default function Hero() {
                 alt="Cartoon snake with a light green body holds a mobile."
                 fill
                 sizes="(max-width: 63rem): 0rem, 7rem"
-                className="size-full object-contain object-center"
+                className="size-full object-contain object-center select-none"
               />
             </div>
             <h1 className="relative mt-16 w-fit text-5xl !leading-tight font-bold tracking-tight text-balance text-gray-900 md:text-6xl lg:text-7xl">
