@@ -1,4 +1,4 @@
-export const whyUs = [
+export const WHY_US = [
   'High-quality selecone material',
   'Scratch and fingerprint resistant',
   'Wireless charging compatible',

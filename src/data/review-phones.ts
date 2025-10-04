@@ -5,7 +5,7 @@ import testimonial4Img from '@/assets/images/testimonials/4.jpg';
 import testimonial5Img from '@/assets/images/testimonials/5.jpg';
 import testimonial6Img from '@/assets/images/testimonials/6.jpg';
 
-export const phones = [
+export const PHONES = [
   testimonial1Img,
   testimonial2Img,
   testimonial3Img,

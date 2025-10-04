@@ -3,7 +3,7 @@ import { Check, Star } from 'lucide-react';
 
 import MaxWidthWrapper from './max-width-wrapper';
 import { Icons } from './icons';
-import { customerReviews } from '@/data/customers-reviews';
+import { CUSTOMER_REVIEWS } from '@/data/customers-reviews';
 import snakeImg from '@/assets/images/snake-2.png';
 
 export default function ValueProposition() {
@@ -29,7 +29,7 @@ export default function ValueProposition() {
         </div>
 
         <ul className="mx-auto grid max-w-2xl grid-cols-1 gap-y-16 px-4 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-          {customerReviews.map((review) => (
+          {CUSTOMER_REVIEWS.map((review) => (
             <li
               key={review.customerName}
               className="flex flex-auto flex-col gap-4 lg:pr-8 xl:pr-20"

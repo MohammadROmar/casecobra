@@ -3,11 +3,11 @@ import { Check, Star } from 'lucide-react';
 
 import MaxWidthWrapper from '@/components/max-width-wrapper';
 import Phone from '@/components/phone';
-import { usersImages } from '@/data/users';
+import { USERS_IMAGES } from '@/data/users';
 import snakeImg from '@/assets/images/snake-1.png';
 import yourImageImg from '@/assets/images/your-image.png';
 import lineImg from '@/assets/images/line.png';
-import testimonialImg from '@/assets/images/testimonials/1.jpg';
+import testimonialImg from '@/assets/images/testimonials/4.jpg';
 
 export default function Hero() {
   return (
@@ -56,7 +56,7 @@ export default function Hero() {
 
               <div className="mt-12 flex flex-col items-center gap-5 sm:flex-row sm:items-start">
                 <ul className="flex -space-x-4">
-                  {usersImages.map((img, i) => (
+                  {USERS_IMAGES.map((img, i) => (
                     <li
                       key={`user-img-${i}`}
                       className="inline-block size-10 overflow-hidden rounded-full ring-2 ring-slate-100"

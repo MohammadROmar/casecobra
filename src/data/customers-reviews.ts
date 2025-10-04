@@ -1,7 +1,7 @@
 import user3Img from '@/assets/images/users/3.png';
 import user1Img from '@/assets/images/users/1.png';
 
-export const customerReviews = [
+export const CUSTOMER_REVIEWS = [
   {
     customerName: 'Jonathan',
     review:

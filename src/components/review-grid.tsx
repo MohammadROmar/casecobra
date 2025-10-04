@@ -3,14 +3,14 @@
 import { useInView } from 'react-intersection-observer';
 
 import ReviewColumn from './review-column';
-import { phones } from '@/data/review-phones';
+import { PHONES } from '@/data/review-phones';
 import { splitArray } from '@/utils/split-array';
 import { cn } from '@/lib/utils';
 
 export default function ReviewGrid() {
   const { ref, inView } = useInView({ triggerOnce: true });
 
-  const columns = splitArray(phones, 3);
+  const columns = splitArray(PHONES, 3);
 
   const column1 = columns[0];
   const column2 = columns[1];
