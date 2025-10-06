@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import Header from '@/components/header';
 import Footer from '@/components/footer';
+import Providers from '@/components/providers';
 import { Toaster } from '@/components/ui/sonner';
 import './globals.css';
 
@@ -18,9 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="selection:text-primary-foreground selection:bg-primary grid min-h-screen grid-rows-[auto_1fr_auto] overflow-x-hidden bg-slate-50 antialiased">
+      <body className="selection:text-primary-foreground selection:bg-primary grid min-h-screen grid-rows-[auto_1fr_auto] overflow-x-hidden antialiased">
         <Header />
-        <main>{children}</main>
+        <main>
+          <Providers>{children}</Providers>
+        </main>
         <Footer />
 
         <Toaster />

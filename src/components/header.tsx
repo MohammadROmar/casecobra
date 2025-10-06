@@ -15,7 +15,7 @@ export default async function Header() {
   const navigationLinks = getNavigationLinks(!!user, isAdmin);
 
   return (
-    <header className="sticky inset-x-0 top-0 z-[100] h-14 w-full border-b border-gray-200 bg-white/90 backdrop-blur-sm transition-all supports-[backdrop-filter]:bg-white/60">
+    <header className="sticky inset-x-0 top-0 z-[1000] h-14 w-full border-b border-gray-200 bg-white/90 backdrop-blur-sm transition-all supports-[backdrop-filter]:bg-white/60">
       <MaxWidthWrapper>
         <nav>
           <div className="flex h-14 items-center justify-between border-b border-zinc-200">

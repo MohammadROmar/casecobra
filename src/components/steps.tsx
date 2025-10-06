@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
-import { Icons } from './icons';
+import SeparatorIcon from '@/assets/icons/separator';
 import { STEPS } from '@/data/steps';
 import { cn } from '@/lib/utils';
 import snake1Img from '@/assets/images/snake-1.png';
@@ -73,7 +73,7 @@ function Steps() {
 
               {i !== 0 ? (
                 <div className="absolute inset-0 hidden w-3 lg:block">
-                  <Icons.separator className="size-full text-gray-300" />
+                  <SeparatorIcon className="size-full text-gray-300" />
                 </div>
               ) : null}
             </li>

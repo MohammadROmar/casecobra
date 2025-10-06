@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { Check, Star } from 'lucide-react';
 
 import MaxWidthWrapper from './max-width-wrapper';
-import { Icons } from './icons';
+import UnderlineIcon from '@/assets/icons/underline';
 import { CUSTOMER_REVIEWS } from '@/data/customers-reviews';
 import snakeImg from '@/assets/images/snake-2.png';
 
@@ -15,7 +15,7 @@ export default function ValueProposition() {
             What our{' '}
             <span className="relative px-2">
               customers
-              <Icons.underline className="text-primary pointer-events-none absolute inset-x-0 -bottom-6 hidden sm:block" />
+              <UnderlineIcon className="text-primary pointer-events-none absolute inset-x-0 -bottom-6 hidden sm:block" />
             </span>{' '}
             say
           </h2>
