@@ -30,6 +30,7 @@ export default async function Header() {
                     className={buttonVariants({
                       size: 'sm',
                       variant: 'destructive',
+                      className: 'text-white',
                     })}
                   >
                     Logout

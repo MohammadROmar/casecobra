@@ -1,7 +1,8 @@
-import DesignConfigurator from '@/components/design-configurator';
-import { db } from '@/db';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+
+import DesignConfigurator from '@/components/design-configurator';
+import { db } from '@/db';
 
 export const metadata: Metadata = { title: 'Design Your Case' };
 

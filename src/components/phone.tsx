@@ -6,7 +6,7 @@ import darkPhoneImg from '@/assets/images/phone-template-dark-edges.png';
 import whitePhoneImg from '@/assets/images/phone-template-white-edges.png';
 
 type PhoneProps = {
-  image: StaticImageData;
+  image: StaticImageData | string;
   dark?: boolean;
 } & ComponentProps<'div'>;
 
@@ -21,13 +21,13 @@ function Phone({ image, dark = false, className, ...props }: PhoneProps) {
     >
       <Image src={dark ? darkPhoneImg : whitePhoneImg} alt="Phone image" />
 
-      <div className="absolute inset-0 -z-10">
-        <Image
-          src={image}
-          alt="overlaying phone image"
-          className="object-cover"
-        />
-      </div>
+      <Image
+        src={image}
+        alt="overlaying phone image"
+        fill
+        sizes="896px"
+        className="absolute inset-0 -z-10 object-cover"
+      />
     </div>
   );
 }

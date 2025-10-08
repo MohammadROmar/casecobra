@@ -1,4 +1,4 @@
-import { ArrowRight, Loader2 } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 import { Button } from '../ui/button';
 import { formatPrice } from '@/utils/format-price';
@@ -24,15 +24,11 @@ function PriceNContinue({ options, isPending, onClick }: PriceNContinueProps) {
           <Button
             onClick={onClick}
             size="sm"
+            isLoading={isPending}
+            disabled={isPending}
             className="flex w-full cursor-pointer"
           >
-            {isPending ? (
-              <Loader2 className="flex size-4 animate-spin items-center justify-center" />
-            ) : (
-              <>
-                Continue <ArrowRight className="ml-1.5 size-4" />
-              </>
-            )}
+            Continue <ArrowRight className="ml-1.5 size-4" />
           </Button>
         </div>
       </div>

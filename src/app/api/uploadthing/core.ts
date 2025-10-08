@@ -19,7 +19,7 @@ export const ourFileRouter = {
     .onUploadComplete(async ({ metadata, file }) => {
       const { configId } = metadata.input;
 
-      const res = await fetch(file.url);
+      const res = await fetch(file.ufsUrl);
       const buffer = await res.arrayBuffer();
 
       const imageMetadata = await sharp(buffer).metadata();
@@ -29,7 +29,7 @@ export const ourFileRouter = {
       if (!configId) {
         const configuration = await db.configuration.create({
           data: {
-            imageUrl: file.url,
+            imageUrl: file.ufsUrl,
             height,
             width,
           },
@@ -39,7 +39,7 @@ export const ourFileRouter = {
 
       const updatedConfiguration = await db.configuration.update({
         where: { id: configId },
-        data: { croppedImageUrl: file.url },
+        data: { croppedImageUrl: file.ufsUrl },
       });
 
       return { configId: updatedConfiguration.id };
