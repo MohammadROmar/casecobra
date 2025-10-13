@@ -1,10 +1,11 @@
 'use server';
 
-import { BASE_PRICE, PRODUCT_PRICES } from '@/config/products';
+import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
+
 import { db } from '@/db';
 import { stripe } from '@/lib/stripe';
-import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
-import { Order } from '@prisma/client';
+import { BASE_PRICE, PRODUCT_PRICES } from '@/config/products';
+import type { Order } from '@prisma/client';
 
 export const createCheckoutSession = async ({
   configId,
