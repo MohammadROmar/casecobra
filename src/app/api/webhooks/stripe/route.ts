@@ -72,7 +72,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ result: event, ok: true });
   } catch (e) {
-    console.log(e);
+    console.error(e);
 
     return NextResponse.json(
       { message: 'Something went wrong', ok: false },

@@ -57,7 +57,7 @@ function PhonePreview({ color, croppedImageUrl }: PhonePreviewProps) {
           height={renderedDimensions.height}
           className={cn(
             'phone-skew relative z-20 rounded-t-[15px] rounded-b-[10px] md:rounded-t-[30px] md:rounded-b-[20px]',
-            caseBgColor,
+            `bg-${caseBgColor?.tw}`,
           )}
         />
       </div>

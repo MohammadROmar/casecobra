@@ -65,7 +65,7 @@ export function useConfiguration({
 
       await startUpload([file], { configId });
     } catch (err) {
-      console.log(err);
+      console.error(err);
 
       toast.error('Something went wrong', {
         description:

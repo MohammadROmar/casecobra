@@ -13,6 +13,7 @@ import { createCheckoutSession } from '@/actions/create-checkout-session';
 
 function CreateCheckoutSessionBtn({ configId }: { configId: string }) {
   const router = useRouter();
+  const { user } = useKindeBrowserClient();
 
   const { mutate: createPaymentSession, isPending } = useMutation({
     mutationKey: ['get-checkout-session'],
@@ -38,10 +39,8 @@ function CreateCheckoutSessionBtn({ configId }: { configId: string }) {
 
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
-  const { isAuthenticated } = useKindeBrowserClient();
-
   function handleCheckout() {
-    if (isAuthenticated) {
+    if (user) {
       createPaymentSession({ configId });
     } else {
       localStorage.setItem('configurationId', configId);
