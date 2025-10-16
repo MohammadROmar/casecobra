@@ -1,7 +1,10 @@
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 
 import ThankYou from '@/components/thank-you';
+
+export const metadata: Metadata = { title: 'Design Your Case' };
 
 type ThankYouPageProps = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;

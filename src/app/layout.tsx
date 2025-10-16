@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: { default: 'Casecobra', template: '%s - Casecobra' },
   description:
     'Casecobra lets you design unique mobile cases with full customization. Choose your favorite color, upload any image, and arrange it freely on the cover to create a personalized phone case that matches your style.',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || ''),
 };
 
 const recursive = Recursive({ subsets: ['latin'] });

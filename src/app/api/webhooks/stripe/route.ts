@@ -1,7 +1,12 @@
-import { db } from '@/db';
-import { stripe } from '@/lib/stripe';
 import { headers } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
+import { Resend } from 'resend';
+
+import { db } from '@/db';
+import { stripe } from '@/lib/stripe';
+import OrderReceivedEmail from '@/components/emails/order-received-email';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
   try {
@@ -42,7 +47,7 @@ export async function POST(req: NextRequest) {
         throw new Error('No address provided');
       }
 
-      await db.order.update({
+      const { createdAt, shippingAddressId } = await db.order.update({
         where: { id: orderId },
         data: {
           billingAddress: {
@@ -67,6 +72,26 @@ export async function POST(req: NextRequest) {
             },
           },
         },
+      });
+
+      await resend.emails.send({
+        from: 'Casecobra <mrm86136@gmail.com>',
+        to: [event.data.object.customer_details.email],
+        subject: 'Thanks for your order.',
+        react: OrderReceivedEmail({
+          orderId,
+          orderDate: createdAt.toLocaleDateString(),
+          shippingAddress: {
+            id: shippingAddressId || '',
+            name: session.customer_details?.name || '',
+            city: billingAddress.city || '',
+            country: billingAddress.country || '',
+            postalCode: billingAddress.postal_code || '',
+            street: billingAddress.line1 || '',
+            state: billingAddress.state,
+            phoneNumber: '',
+          },
+        }),
       });
     }
 

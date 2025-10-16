@@ -4,11 +4,11 @@ import { useRouter } from 'next/navigation';
 import { useState, useTransition } from 'react';
 import Dropzone, { FileRejection } from 'react-dropzone';
 import { CloudUpload, Loader2, MousePointerSquareDashed } from 'lucide-react';
+import { toast } from 'sonner';
 
 import { useUploadThing } from '@/utils/uploadthing';
 import { Progress } from './ui/progress';
 import { cn } from '@/lib/utils';
-import { toast } from 'sonner';
 
 export default function UploadImage() {
   const [isDragOver, setIsDragOver] = useState(false);
@@ -25,6 +25,16 @@ export default function UploadImage() {
     },
     onUploadProgress(progress) {
       setUploadProgress(progress);
+    },
+    onUploadError() {
+      toast.error('Something went wrong', {
+        description: 'Please try again later.',
+        classNames: {
+          toast: '!bg-muted overflow-hidden',
+          icon: 'text-destructive',
+          description: '!text-muted-foreground truncate',
+        },
+      });
     },
   });
 

@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useMutation } from '@tanstack/react-query';
 import { Check, ChevronsUpDown } from 'lucide-react';
+import { toast } from 'sonner';
 
 import { Button } from './ui/button';
 import {
@@ -35,7 +36,16 @@ function StatusDropdown({ id, orderStatus }: StatusDropdownProps) {
     onSuccess() {
       router.refresh();
     },
-    onError() {},
+    onError() {
+      toast.error('Something went wrong', {
+        description: 'We could not update the order status. Please try agin.',
+        classNames: {
+          toast: '!bg-muted overflow-hidden',
+          icon: 'text-destructive',
+          description: '!text-muted-foreground truncate',
+        },
+      });
+    },
   });
 
   return (

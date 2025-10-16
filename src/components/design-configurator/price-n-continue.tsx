@@ -26,6 +26,7 @@ function PriceNContinue({ options, isPending, onClick }: PriceNContinueProps) {
             size="sm"
             isLoading={isPending}
             disabled={isPending}
+            loadingText="Saving"
             className="flex w-full cursor-pointer"
           >
             Continue <ArrowRight className="ml-1.5 size-4" />
