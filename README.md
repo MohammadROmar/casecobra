@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📱 Casecobra
 
-## Getting Started
+**Casecobra** is a full-featured web application for creating and customizing phone cases.  
+It allows users to upload their own images, adjust their position, choose colors and materials, preview the final case with dynamic pricing, and complete payment securely via **Stripe**.
 
-First, run the development server:
+🔗 **Live Demo:** [casecobra-app.vercel.app](https://casecobra-app.vercel.app)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## ✨ Features
+
+- 🎨 **Full Case Customization**
+  - Upload your own image.
+  - Adjust image position on the case.
+  - Choose color and material/texture.
+
+- 💰 **Dynamic Pricing**
+  - Price updates automatically based on selected materials.
+
+- 💳 **Secure Payments with Stripe**
+  - Complete checkout process.
+  - Payment verification using **Stripe Webhooks**.
+
+- 👨‍💼 **Admin Dashboard**
+  - View all completed orders.
+  - Track weekly and monthly sales (not profit).
+  - Admin account defined via environment variables.
+
+---
+
+## 🛠 Technologies Used
+
+- Next.js 15 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- Prisma ORM
+- Stripe API
+- Kinde Authentication
+- UploadThing
+- Resend (Email service)
+- shadcn/ui
+- React Query
+
+---
+
+## 🧩 Environment Variables
+
+Before running the project, create a `.env` file in the root directory and include the following variables:
+
+```env
+# Kinde Authentication
+KINDE_CLIENT_ID=
+KINDE_CLIENT_SECRET=
+KINDE_ISSUER_URL=
+KINDE_SITE_URL=
+KINDE_POST_LOGOUT_REDIRECT_URL=
+KINDE_POST_LOGIN_REDIRECT_URL=
+
+# Admin
+ADMIN_EMAIL=
+
+# UploadThing
+UPLOADTHING_TOKEN=
+
+# Database (Prisma)
+DATABASE_URL=
+
+# Stripe
+STRIPE_SECRET_KEY=
+STRIPE_WEBHOOK_SECRET=
+
+# Public Server URL
+NEXT_PUBLIC_SERVER_URL=
+
+# Resend (for emails)
+RESEND_API_KEY=
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Installation & Local Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# 1️⃣ Clone the repository
+git clone https://github.com/MohammadROmar/casecobra.git
+cd casecobra
 
-## Learn More
+# 2️⃣ Install dependencies
+npm install
 
-To learn more about Next.js, take a look at the following resources:
+# 3️⃣ Create a .env file
+# and add your environment variable values as listed above
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# 4️⃣ Setup the database
+npx prisma generate
+npx prisma db push
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# 5️⃣ Start the development server
+npm run dev
+```
 
-## Deploy on Vercel
+Open your browser at:
+👉 http://localhost:3000
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📊 Admin Access
+
+```env
+ADMIN_EMAIL=admin@example.com
+```
+
+Logging in with Kinde using this email grants access to the Admin Dashboard, where all orders and sales statistics can be viewed.
+
+---
