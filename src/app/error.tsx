@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { ArrowLeft, RefreshCw } from 'lucide-react';
 
 import MaxWidthWrapper from '@/components/max-width-wrapper';
@@ -9,8 +8,6 @@ import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 export default function ErrorPage() {
-  const router = useRouter();
-
   return (
     <section className="h-full">
       <MaxWidthWrapper className="flex h-full flex-col items-center justify-center text-center">
@@ -21,7 +18,7 @@ export default function ErrorPage() {
 
         <div className="mt-4 flex w-full flex-col items-center justify-center gap-2 sm:flex-row sm:gap-4">
           <Button
-            onClick={() => router.refresh()}
+            onClick={() => window.location.reload()}
             className="cursor-pointer max-sm:w-full"
           >
             <RefreshCw className="mr-1.5 size-4" />
